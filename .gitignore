@@ -7,3 +7,5 @@ analysis
 *.project
 /.settings
 /.idea
+
+vendor
