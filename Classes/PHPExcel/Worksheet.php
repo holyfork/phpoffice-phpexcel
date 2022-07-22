@@ -1181,8 +1181,8 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
     /**
      * Get cell at a specific coordinate by using numeric cell coordinates
      *
-     * @param  string $pColumn Numeric column coordinate of the cell (starting from 0)
-     * @param string $pRow Numeric row coordinate of the cell
+     * @param string|int $pColumn Numeric column coordinate of the cell (starting from 0)
+     * @param string|int $pRow Numeric row coordinate of the cell
      * @param boolean $createIfNotExists  Flag indicating whether a new cell should be created if it doesn't
      *                                       already exist, or a null should be returned instead
      * @return null|PHPExcel_Cell Cell that was found/created or null
