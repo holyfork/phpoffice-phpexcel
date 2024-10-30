@@ -285,7 +285,7 @@ class PHPExcel_Shared_OLE
                     $pps = new PHPExcel_Shared_OLE_PPS_File($name);
                     break;
                 default:
-                    continue;
+                    break;
             }
             fseek($fh, 1, SEEK_CUR);
             $pps->Type    = $type;
@@ -481,12 +481,12 @@ class PHPExcel_Shared_OLE
         $res = '';
 
         for ($i = 0; $i < 4; ++$i) {
-            $hex = $low_part % 0x100;
+            $hex = round($low_part - (0x100 * floor($low_part / 0x100)));
             $res .= pack('c', $hex);
             $low_part /= 0x100;
         }
         for ($i = 0; $i < 4; ++$i) {
-            $hex = $high_part % 0x100;
+            $hex = round($high_part - (0x100 * floor($high_part / 0x100)));
             $res .= pack('c', $hex);
             $high_part /= 0x100;
         }
