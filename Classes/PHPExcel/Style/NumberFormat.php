@@ -461,7 +461,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 
         // OpenOffice.org uses upper-case number formats, e.g. 'YYYY', convert to lower-case;
         //    but we don't want to change any quoted strings
-        $format = preg_replace_callback('/(?:^|")([^"]*)(?:$|")/', array('self', 'setLowercaseCallback'), $format);
+        $format = preg_replace_callback('/(?:^|")([^"]*)(?:$|")/', array(self::class, 'setLowercaseCallback'), $format);
 
         // Only process the non-quoted blocks for date format characters
         $blocks = explode('"', $format);
@@ -480,7 +480,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
         $format = implode('"', $blocks);
 
         // escape any quoted characters so that DateTime format() will render them correctly
-        $format = preg_replace_callback('/"(.*)"/U', array('self', 'escapeQuotesCallback'), $format);
+        $format = preg_replace_callback('/"(.*)"/U', array(static::class, 'escapeQuotesCallback'), $format);
 
         $dateObj = PHPExcel_Shared_Date::ExcelToPHPObject($value);
         $value = $dateObj->format($format);
