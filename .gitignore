@@ -9,3 +9,5 @@ analysis
 /.idea
 
 vendor
+
+/.build/vendor
