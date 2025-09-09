@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="ModernTV" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".build/vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <description>ModernTV</description>
+
+    <!-- Config -->
+    <config name="php_version" value="80200"/>
+    <arg name="extensions" value="php,phpt"/>
+    <arg name="parallel" value="10"/>
+    <ini name="memory_limit" value="4096M"/>
+    <arg name="basepath" value="./"/>
+
+    <!-- Customs -->
+    <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat">
+        <properties>
+            <property name="enable" value="true"/>
+            <property name="nullPosition" value="last"/>
+            <property name="shortNullable" value="no"/>
+        </properties>
+    </rule>
+</ruleset>
